@@ -5,31 +5,24 @@
         <div class="col-sm-6 col-xs-12 col-lg-6 no-padding">
           <label for="category" class="label-header col-sm-2 col-xs-4 col-lg-2">Category</label>
           <div class="col-sm-4  col-xs-8 col-lg-4 no-padding">
-            <select class="form-control" id="category" name="category" ng-model="category"
-                    ng-init="category = category || categories[0].value"
-                    ng-options="category.value as category.label for category in categories"></select>
+            <select class="form-control" id="category" name="category" ng-model="category" ng-init="category = category || categories[0].value" ng-options="category.value as category.label for category in categories"></select>
           </div>
         </div>
         <div class="col-sm-6 col-xs-12 col-lg-6 no-padding">
-          <label for="sortby"
-                 class="label-header label-right col-sm-2  col-xs-4 col-lg-2 col-sm-offset-5">SortBy</label>
+          <label for="sortby" class="label-header label-right col-sm-2  col-xs-4 col-lg-2 col-sm-offset-5">SortBy</label>
           <div class="col-sm-4  col-xs-8 col-lg-4 no-padding">
-            <select class="form-control" id="sortby" name="sortby" ng-model="sortParam"
-                    ng-init="sortParam = sortParam || sortParams[0].value"
-                    ng-options="sortParam.value as sortParam.label for sortParam in sortParams"></select>
+            <select class="form-control" id="sortby" name="sortby" ng-model="sortParam" ng-init="sortParam = sortParam || sortParams[0].value" ng-options="sortParam.value as sortParam.label for sortParam in sortParams"></select>
           </div>
         </div>
       </div>
-    <div ng-if="!showPromos">
+      <div ng-if="!showPromos">
         <br></br>
         <h3>{{message}}</h3>
-    </div>
+      </div>
     </div>
   </div>
-
   <ul class="media-list">
-    <li class="media container"
-        dir-paginate="promo in promos | filter:{category:category, title:searchTerm} | orderBy:sortParam | itemsPerPage: 6">
+    <li class="media container" dir-paginate="promo in promos | filter:{category:category, title:searchTerm} | orderBy:sortParam | itemsPerPage: 6">
       <div class="row row-content">
         <div class="media-right pull-right">
           <a style="cursor:pointer;" ng-if="promo.image">
@@ -58,10 +51,8 @@
       </div>
     </li>
   </ul>
-
   <div class="mini-nav align-center" ng-controller="PaginationController">
     <dir-pagination-controls on-page-change="pageChanged()"></dir-pagination-controls>
   </div>
-
 </div>
 
